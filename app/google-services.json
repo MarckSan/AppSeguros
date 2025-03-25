@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "565838214613",
+    "firebase_url": "https://appseguros-e3892-default-rtdb.firebaseio.com",
+    "project_id": "appseguros-e3892",
+    "storage_bucket": "appseguros-e3892.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565838214613:android:7800ef4dcd28ba91de395c",
+        "android_client_info": {
+          "package_name": "com.example.appseguros"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZzXUHIj9JIyqaY_gl_2n-L9qOf0VPhds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
