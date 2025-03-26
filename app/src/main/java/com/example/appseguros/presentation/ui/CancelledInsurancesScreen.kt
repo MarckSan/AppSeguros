@@ -55,7 +55,7 @@ fun CancelledInsuranceItem(insurance: ContractedInsurance) {
     Column(
         modifier = Modifier.padding(8.dp)
     ) {
-        Text(text = "Nombre del Seguro: ${insurance.product.name}")
+        Text(text = "Nombre del Seguro: ${insurance.productId}")
         Text(text = "Fecha de Cancelación: ${insurance.endDate}")
     }
 }

@@ -44,7 +44,7 @@ fun ContractedInsurancesScreen(navController: NavHostController, viewModel: Cont
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 items(viewModel.insurances) { insurance ->
-                    InsuranceItem(insurance, onCancelClick = { viewModel.cancelInsurance(insurance.id) })
+                    InsuranceItem(insurance, onCancelClick = { viewModel.cancelInsurance(insurance.id!!) })
                 }
             }
         }
@@ -56,7 +56,7 @@ fun InsuranceItem(insurance: ContractedInsurance, onCancelClick: () -> Unit) {
     Column(
         modifier = Modifier.padding(8.dp)
     ) {
-        Text(text = "Nombre del Seguro: ${insurance.product.name}")
+        Text(text = "Nombre del Seguro: ${insurance.productId}")
         Text(text = "Fecha de Contratación: ${insurance.endDate}")
         Button(onClick = onCancelClick) {
             Text(text = "Cancelar Seguro")

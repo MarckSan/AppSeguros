@@ -33,7 +33,7 @@ fun CustomButton(text: String, onClick: () -> Unit) {
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF009688) // Color de ejemplo
+            containerColor = Color(183, 32, 0) // Color de ejemplo
         ),
         shape = RoundedCornerShape(8.dp),
         contentPadding = PaddingValues(16.dp)
@@ -50,6 +50,7 @@ fun CustomTextField(
     label: String,
     keyboardType: KeyboardType = KeyboardType.Text,
     isPasswordTextField: Boolean = false,
+    isError: Boolean = false,
     modifier: Modifier = Modifier
 ) {
     var passwordVisibility by remember { mutableStateOf(false) }
@@ -81,6 +82,15 @@ fun CustomTextField(
             }
         } else {
             null
-        }
+        },
+        isError = isError,
+        shape = RoundedCornerShape(8.dp)
     )
+    if (isError) {
+        Text(
+            text = "Campo obligatorio",
+            color = Color.Red,
+            modifier = Modifier.padding(start = 16.dp)
+        )
+    }
 }

@@ -11,12 +11,12 @@ import java.time.LocalDate
 import java.time.Month
 import javax.inject.Inject
 
-class InsuranceRepositoryImpl @Inject constructor(
+/*class InsuranceRepositoryImpl @Inject constructor(
     // Aquí irían las dependencias necesarias, por ejemplo:
     // private val apiService: ApiService,
     // private val userDao: UserDao
 ) : InsuranceRepository {
-    override suspend fun getInsuranceProducts(): List<InsuranceProduct> {
+   override suspend fun getInsuranceProducts(): List<InsuranceProduct> {
         // Aquí iría la lógica para obtener los productos de seguros.
         // Ejemplo:
         // return apiService.getInsuranceProducts()
@@ -56,6 +56,10 @@ class InsuranceRepositoryImpl @Inject constructor(
         // Ejemplo:
         // apiService.contractInsurance(userId, insuranceId)
         println("Usuario: $userId a contratado el seguro: $insuranceId")
+    }
+
+    override suspend fun cancelInsurance(insuranceId: String) {
+        TODO("Not yet implemented")
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -122,4 +126,4 @@ class InsuranceRepositoryImpl @Inject constructor(
         isCancelled = false // O true si está cancelado
     )
 
-}
+}*/

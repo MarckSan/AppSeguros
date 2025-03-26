@@ -3,12 +3,14 @@ package com.example.appseguros.data.model
 import java.time.LocalDate
 
 data class User(
-    val id: Int,
-    val name: String,
-    val lastName: String,
-    val secondLastName: String,
-    val birthDate: LocalDate,
-    val phoneNumber: String,
-    val email: String,
-    val pass: String,
-)
+    var id: String? = null,
+    val name: String? = null,
+    val lastName: String? = null,
+    val secondLastName: String? = null,
+    val birthDate: String? = null,
+    val phoneNumber: String? = null,
+    val email: String? = null,
+    val pass: String? = null,
+){
+    constructor() : this(null, null, null, null, null, null, null, null)
+}

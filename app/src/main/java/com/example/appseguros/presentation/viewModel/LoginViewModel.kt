@@ -1,5 +1,7 @@
 package com.example.appseguros.presentation.viewModel
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -11,6 +13,7 @@ import com.example.appseguros.domain.use_case.SaveUserUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 
 enum class LoginError {
@@ -27,28 +30,45 @@ class LoginViewModel @Inject constructor(
     var user by mutableStateOf<User?>(null)
     var isLoading by mutableStateOf(false)
     var isError by mutableStateOf(false)
+    var showErrorEmail by mutableStateOf(false)
+    var showErrorPass by mutableStateOf(false)
+
 
     fun login() {
+        // Verifica si los campos están vacíos y actualiza las variables de error
+        if (email.isEmpty()) {
+            showErrorEmail = true
+        } else {
+            showErrorEmail = false
+        }
+
+        if (pass.isEmpty()) {
+            showErrorPass = true
+        } else {
+            showErrorPass = false
+        }
+
+        // Si hay un error en algún campo, no procede con el login
+        if (showErrorEmail || showErrorPass) {
+            return
+        }
         viewModelScope.launch {
             isLoading = true
-            isError = false
-            //user = loginUserUseCase(email, pass)
+            //user = loginUseCase(email, pass)
             isLoading = false
-            if(user == null){
-                isError = true
-            }
         }
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     fun createUser(name: String, lastName: String, secondLastName: String, birthDate: LocalDate, phoneNumber: String, email: String, pass: String){
         viewModelScope.launch {
             isLoading = true
             isError = false
+            val dateString = birthDate?.format(DateTimeFormatter.ISO_DATE)
             val user = User(
-                id = (1..100).random(),
                 name = name,
                 lastName = lastName,
                 secondLastName = secondLastName,
-                birthDate = birthDate,
+                birthDate = dateString,
                 phoneNumber = phoneNumber,
                 email = email,
                 pass = pass

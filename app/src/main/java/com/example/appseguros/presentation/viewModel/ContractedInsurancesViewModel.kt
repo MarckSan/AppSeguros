@@ -39,7 +39,7 @@ class ContractedInsurancesViewModel @Inject constructor(
         }
     }
 
-    fun cancelInsurance(insuranceId: Int) {
+    fun cancelInsurance(insuranceId: String) {
         viewModelScope.launch {
             isLoading = true
             isError = false
