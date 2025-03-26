@@ -13,5 +13,5 @@ interface InsuranceRepository {
     suspend fun loginUser(email: String, pass:String): User?
     suspend fun getPdfUrl(): PdfData
     suspend fun contractInsurance(userId: Int, productId: Int)
-    suspend fun cancelInsurance(insuranceId: Int)
+    suspend fun cancelInsurance(insuranceId: String)
 }
