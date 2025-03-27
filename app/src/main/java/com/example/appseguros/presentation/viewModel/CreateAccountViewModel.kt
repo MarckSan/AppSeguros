@@ -38,6 +38,7 @@ class CreateAccountViewModel @Inject constructor(private val saveUserUseCase: Sa
     var showDatePicker by mutableStateOf(false)
     var selectedDateText by mutableStateOf("Seleccionar Fecha")
     var passError by mutableStateOf(false)
+    var navigateToProducts by mutableStateOf(false)
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun createUser(){
@@ -59,6 +60,7 @@ class CreateAccountViewModel @Inject constructor(private val saveUserUseCase: Sa
             isLoading = false
             if (success) {
                 isSuccess = true
+                navigateToProducts = true
             } else {
                 isError = true
             }

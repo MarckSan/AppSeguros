@@ -54,7 +54,7 @@ class LoginViewModel @Inject constructor(
         }
         viewModelScope.launch {
             isLoading = true
-            //user = loginUseCase(email, pass)
+            user = loginUserUseCase(email, pass)
             isLoading = false
         }
     }
